@@ -143,11 +143,19 @@ color: green;
 /* Style for the navbar-toggler button */
 .toggle-icon
 {
- color: green;
-padding-right: 40px;
+ color:white;
+ margin-right: 5px;
+ margin-left: 5px;
 
 }
+.toggle-style{
+border: 0px;
+}
 
+.toggle-icon:hover
+{
+ color:green;
+}
 @media (max-width: 992px) {
  
   .custom-navbar-collapse{
@@ -246,7 +254,7 @@ margin-top: 40px;
 }
 .captionheading{
 
-font-size: 60px;
+font-size: 50px;
 }
 @media (max-width: 992px){
 
@@ -255,7 +263,7 @@ font-size: 60px;
     margin-top: 60px;
   }
   .captionheading{
-font-size: 30px;
+font-size: 25px;
 
   }
 
@@ -327,13 +335,7 @@ border: 0px;
 
 
 /* Other existing styles */
-.captionheading {
-  font-size: 3rem;
-}
 
-.texton {
-  font-size: 1.5rem;
-}
 
 .search-overlay {
   position: fixed;

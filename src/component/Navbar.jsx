@@ -3,10 +3,10 @@ import { Navbar, Nav, Container, Carousel, NavDropdown } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './navbar.css';
 
-import img1 from "../assets/carosal1.jpg"
-import img2 from "../assets/carosal2.jpg"
-import img3 from "../assets/carosal3.jpg"
-import img4 from "../assets/carosal4.jpg"
+import img1 from "../assets/carosal1.jpg";
+import img2 from "../assets/carosal2.jpg";
+import img3 from "../assets/carosal3.jpg";
+import img4 from "../assets/carosal4.jpg";
 import logo from '../assets/logo-light.png';
 import { FaSearch } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
@@ -29,13 +29,16 @@ const NavbarCarousel = () => {
     setShowSearch(false);
   };
 
-  const handleNavItemClick = () => {
+  const handleNavItemClick = (event) => {
     if (navbarCollapseRef.current) {
       navbarCollapseRef.current.classList.remove('show');
     }
   };
 
   useEffect(() => {
+    // Scroll Restoration
+    window.history.scrollRestoration = 'manual';
+    
     const handleScroll = () => {
       window.scrollY > 50 ? setSticky(true) : setSticky(false);
     };
@@ -46,7 +49,13 @@ const NavbarCarousel = () => {
     };
   }, []);
 
-  const isHomePage = location.pathname === '/';
+  useEffect(() => {
+    // Restore scroll position on page load
+    window.scrollTo(0, 0);
+  }, [location]);
+
+  const isHomePage = location.pathname === '/' || location.pathname === '/Body';
+
   const navbarClass = isHomePage ? `navbar-custom ${sticky ? 'black-nav' : ''}` : 'navbar-custom black-nav';
  
   return (
@@ -56,13 +65,13 @@ const NavbarCarousel = () => {
           <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
             <img className='img-fluid logo' src={logo} alt="Logo" />
           </Navbar.Brand>
-          <Navbar.Toggle>
+          <Navbar.Toggle className='toggle-style'>
             <div className='toggle-icon'><GiHamburgerMenu /></div>
           </Navbar.Toggle>
 
           <Navbar.Collapse id="basic-navbar-nav" ref={navbarCollapseRef} className="custom-navbar-collapse">
             <Nav className="ml-auto">
-              <Nav.Link as={Link} to="/" className={`ms-3 nav-hover fw-bolder mt-1 ${sticky ? 'dark-text' : 'text-light'}`} onClick={handleNavItemClick}>Home</Nav.Link>
+              <Nav.Link as={Link} to="/Body" className={`ms-3 nav-hover fw-bolder mt-1 ${sticky ? 'dark-text' : 'text-light'}`} onClick={handleNavItemClick}>Home</Nav.Link>
               <NavDropdown title="Service" id="basic-nav-dropdown" className={`dropdown-hover ms-3 mt-1 fw-bold nav-hover1 ${sticky ? 'dark-text' : 'text-light'}`}>
                 <div className="row mt-3 mx-auto drop">
                   <div className="col-sm-6">
