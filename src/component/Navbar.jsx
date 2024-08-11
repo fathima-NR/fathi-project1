@@ -125,8 +125,8 @@ const NavbarCarousel = () => {
         <Carousel fade interval={10000}> {/* 10 seconds interval with fade effect */}
           <Carousel.Item>
             <img
-              className="d-block w-100"
-              src={img1}
+              className="  img-fluid carosalimg"
+              src={img1} 
               alt="First slide"
             />
             <Carousel.Caption style={{ position: 'absolute', top: '30%', textShadow: '2px 2px 4px black' }}>
@@ -136,7 +136,7 @@ const NavbarCarousel = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="  img-fluid carosalimg"
               src={img2}
               alt="Second slide"
             />
@@ -147,7 +147,7 @@ const NavbarCarousel = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="  img-fluid carosalimg"
               src={img3}
               alt="Third slide"
             />
@@ -158,7 +158,7 @@ const NavbarCarousel = () => {
           </Carousel.Item>
           <Carousel.Item>
             <img
-              className="d-block w-100"
+              className="  img-fluid carosalimg"
               src={img4}
               alt="Fourth slide"
             />

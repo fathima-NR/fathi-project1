@@ -2,6 +2,13 @@
     height: 440px; /* Adjust the height as needed */
 
   }
+  @media (max-width: 500px){
+    .custom-img-height {
+      height: 250px; /* Adjust the height as needed */
+  
+    }
+
+  }
   .list-point{
 list-style: none;
 
