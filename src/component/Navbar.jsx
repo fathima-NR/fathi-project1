@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Navbar, Nav, Container, Carousel, NavDropdown } from 'react-bootstrap';
 import { useLocation } from 'react-router-dom';
 import './navbar.css';
+
 import img1 from "../assets/carosal1.jpg"
 import img2 from "../assets/carosal2.jpg"
 import img3 from "../assets/carosal3.jpg"
@@ -12,7 +13,7 @@ import { IoCall } from "react-icons/io5";
 import { FaWindowClose } from "react-icons/fa";
 import { HashLink } from 'react-router-hash-link';
 import { GiHamburgerMenu } from "react-icons/gi";
-
+import { Link } from 'react-router-dom';
 const NavbarCarousel = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [sticky, setSticky] = useState(false);
@@ -60,7 +61,8 @@ const NavbarCarousel = () => {
 
           <Navbar.Collapse id="basic-navbar-nav" ref={navbarCollapseRef} className="custom-navbar-collapse">
             <Nav className="ml-auto">
-              <Nav.Link href="/body" className={`ms-3 nav-hover fw-bolder mt-1 ${sticky ? 'dark-text' : 'text-light'}`}>Home</Nav.Link>
+            
+              <Nav.Link href="/Body" className={`ms-3 nav-hover fw-bolder mt-1 ${sticky ? 'dark-text' : 'text-light'}`}>Home</Nav.Link>
               <NavDropdown title="Service" id="basic-nav-dropdown" className={`dropdown-hover ms-3 mt-1 fw-bold nav-hover1 ${sticky ? 'dark-text' : 'text-light'}`}>
                 <div className="row mt-3 mx-auto drop" >
                   <div className="col-sm-6">
