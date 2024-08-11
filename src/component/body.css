@@ -1,0 +1,67 @@
+.custom-img-height {
+    height: 440px; /* Adjust the height as needed */
+
+  }
+  .list-point{
+list-style: none;
+
+  }
+  .full-cover-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+/* Custom CSS for swapping columns in even rows on mobile devices */
+
+@media (max-width: 767.98px) {
+  .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  /* Reorder columns within each row */
+  .row1 > .col-md-6:nth-of-type(1) {
+    order: 2; /* Moves the first column (image) to the second position */
+  }
+
+  .row1 > .col-md-6:nth-of-type(2) {
+    order: 1; /* Moves the second column (text) to the first position */
+  }
+
+  .row1 > .col-md-6:nth-of-type(3) {
+    order: 4; /* Moves the third column (image) to the fourth position */
+  }
+
+  .row1 > .col-md-6:nth-of-type(4) {
+    order: 3; /* Moves the fourth column (text) to the third position */
+  }
+}
+
+.flash-effect1 {
+  position: relative;
+  overflow: hidden;
+border: 0px;
+  background-color: #53bec4; /* Initial background color (green) */
+  color: white; /* Initial text color (white) */
+  transition: background-color 0.4s ease, color 0.4s ease; /* Smooth transition for background and text color */
+}
+
+.flash-effect1::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: white;
+  transition: left 0.6s ease; /* Move the flash from left to right */
+}
+
+.flash-effect1:hover {
+  background-color:green; /* Background color becomes white after hover */
+  color:white; /* Text color becomes green after hover */
+}
+.flash-effect1:hover::before {
+  left: 100%; /* Move the flash to the right */
+}

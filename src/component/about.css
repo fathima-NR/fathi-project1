@@ -1,0 +1,25 @@
+.profile{
+    margin-top: 35px;
+    margin-left: 20px;
+    margin-right:20px ;
+  width: 90%;
+  height: 90%;
+
+}
+
+@keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .about-heading {
+    animation: fadeInUp 1s ease-in-out;
+  }
+  
+  
