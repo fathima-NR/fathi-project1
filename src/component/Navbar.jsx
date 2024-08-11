@@ -12,8 +12,9 @@ import { FaSearch } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { FaWindowClose } from "react-icons/fa";
 import { HashLink } from 'react-router-hash-link';
-import { GiHamburgerMenu } from "react-icons/gi";
 import { Link } from 'react-router-dom';
+import { GiHamburgerMenu } from "react-icons/gi";
+
 const NavbarCarousel = () => {
   const [showSearch, setShowSearch] = useState(false);
   const [sticky, setSticky] = useState(false);
@@ -45,80 +46,63 @@ const NavbarCarousel = () => {
     };
   }, []);
 
-  const isHomePage = location.pathname === '/' || location.pathname === '/body';
+  const isHomePage = location.pathname === '/';
   const navbarClass = isHomePage ? `navbar-custom ${sticky ? 'black-nav' : ''}` : 'navbar-custom black-nav';
  
   return (
     <>
       <Navbar bg="transparent" expand="lg" fixed="top" className={navbarClass}>
         <Container fluid>
-          <Navbar.Brand href="#home" className="navbar-brand-custom">
-            <img className='img-fluid logo' src={logo} alt="Logo"  />
+          <Navbar.Brand as={Link} to="/" className="navbar-brand-custom">
+            <img className='img-fluid logo' src={logo} alt="Logo" />
           </Navbar.Brand>
-          <Navbar.Toggle >
+          <Navbar.Toggle>
             <div className='toggle-icon'><GiHamburgerMenu /></div>
           </Navbar.Toggle>
 
           <Navbar.Collapse id="basic-navbar-nav" ref={navbarCollapseRef} className="custom-navbar-collapse">
             <Nav className="ml-auto">
-            
-              <Nav.Link href="/Body" className={`ms-3 nav-hover fw-bolder mt-1 ${sticky ? 'dark-text' : 'text-light'}`}>Home</Nav.Link>
+              <Nav.Link as={Link} to="/" className={`ms-3 nav-hover fw-bolder mt-1 ${sticky ? 'dark-text' : 'text-light'}`} onClick={handleNavItemClick}>Home</Nav.Link>
               <NavDropdown title="Service" id="basic-nav-dropdown" className={`dropdown-hover ms-3 mt-1 fw-bold nav-hover1 ${sticky ? 'dark-text' : 'text-light'}`}>
-                <div className="row mt-3 mx-auto drop" >
+                <div className="row mt-3 mx-auto drop">
                   <div className="col-sm-6">
-                    <HashLink to="/body#cctv" className='text-decoration-none'>
-                      <NavDropdown.Item href="/body#cctv" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
-                        CCTV
-                      </NavDropdown.Item>
-                    </HashLink>
-                    <HashLink to="/body#acs" className='text-decoration-none'>
-                      <NavDropdown.Item href="/body#acs" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
-                        ACCESS CONTROL SYSTEM
-                      </NavDropdown.Item>
-                    </HashLink>
-                    <HashLink to="/body#asc" className='text-decoration-none'>
-                      <NavDropdown.Item href="/body#asc" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
-                        AUTOMATIC SLIDING/GLASS DOORS AND REVOLVING DOORS
-                      </NavDropdown.Item>
-                    </HashLink>
-                    <HashLink to="/body#ars" className='text-decoration-none'>
-                      <NavDropdown.Item href="/body#ars" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
-                        AUTOMATIC ROLLING SHUTTERS AND GARAGE DOORS
-                      </NavDropdown.Item>
-                    </HashLink>
+                    <NavDropdown.Item as={HashLink} to="/#cctv" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
+                      CCTV
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/#acs" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
+                      ACCESS CONTROL SYSTEM
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/#asc" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
+                      AUTOMATIC SLIDING/GLASS DOORS AND REVOLVING DOORS
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/#ars" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
+                      AUTOMATIC ROLLING SHUTTERS AND GARAGE DOORS
+                    </NavDropdown.Item>
                   </div>
                   <div className='col-sm-6'>
-                    <HashLink to="/body#ia" className='text-decoration-none'>
-                      <NavDropdown.Item href="/body#ia" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
-                        INTRUDER ALARM
-                      </NavDropdown.Item>
-                    </HashLink>
-                    <HashLink to="/body#foj" className='text-decoration-none'>
-                      <NavDropdown.Item href="/body#foj" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
-                        FIT OUT JOB
-                      </NavDropdown.Item>
-                    </HashLink>
-                    <HashLink to="/body#aga" className='text-decoration-none'>
-                      <NavDropdown.Item href="/body#aga" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
-                        AUTOMATIC GATES AND AUDIO VIDEO INTERCOMS
-                      </NavDropdown.Item>
-                    </HashLink>
-                    <HashLink to="/body#amc" className='text-decoration-none'>
-                      <NavDropdown.Item href="/body#amc" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
-                        AMC
-                      </NavDropdown.Item>
-                    </HashLink>
+                    <NavDropdown.Item as={HashLink} to="/#ia" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
+                      INTRUDER ALARM
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/#foj" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
+                      FIT OUT JOB
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/#aga" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
+                      AUTOMATIC GATES AND AUDIO VIDEO INTERCOMS
+                    </NavDropdown.Item>
+                    <NavDropdown.Item as={HashLink} to="/#amc" className="dropdown-item-custom mt-2" onClick={handleNavItemClick}>
+                      AMC
+                    </NavDropdown.Item>
                   </div>
                 </div>
               </NavDropdown>
-              <Nav.Link href="/About" className={`ms-3 fw-bolder mt-1 nav-hover ${sticky ? 'dark-text' : 'text-light'}`}>About Us</Nav.Link>
-              <Nav.Link href="/Contact" className={`ms-3 fw-bolder mt-1 nav-hover ${sticky ? 'dark-text' : 'text-light'}`}>Contact Us</Nav.Link>
+              <Nav.Link as={Link} to="/about" className={`ms-3 fw-bolder mt-1 nav-hover ${sticky ? 'dark-text' : 'text-light'}`} onClick={handleNavItemClick}>About Us</Nav.Link>
+              <Nav.Link as={Link} to="/contact" className={`ms-3 fw-bolder mt-1 nav-hover ${sticky ? 'dark-text' : 'text-light'}`} onClick={handleNavItemClick}>Contact Us</Nav.Link>
               <Nav.Link onClick={handleSearchClick} className={`ms-3 fw-bolder fs-5 mt-1 cursor-pointer ${sticky ? 'dark-text' : 'text-light'}`}><FaSearch /></Nav.Link>
-              <button className={`px-4 ms-2 mb-1 flash-effect2 fw-bold ${sticky ? 'dark-text' : 'text-light'}`} style={{border:"0px"}}>
+              <button className={`px-4 ms-2 mb-1 flash-effect2 fw-bold ${sticky ? 'dark-text' : 'text-light'}`} style={{ border: "0px" }}>
                 Get A Quote
               </button>
               <button className="expand-button ms-4 mt-2"><IoCall /></button>
-              <Nav.Link href="#link" className={`ms-3 fw-bold ${sticky ? 'dark-text' : 'text-light'}`}>
+              <Nav.Link className={`ms-3 fw-bold ${sticky ? 'dark-text' : 'text-light'}`}>
                 <div>+971 55 538 8440 <br />
                   <a href="mailto:sales@liwaratech.com" className={`${sticky ? 'dark-text' : 'text-light'}`} style={{ textDecoration: "none", color: sticky ? 'black' : 'white' }}>sales@liwaratech.com</a>
                 </div>
